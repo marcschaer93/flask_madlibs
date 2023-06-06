@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {%block title%}MADLIBS{%endblock%} 
+{%block content%}
+  <body>
+    <header id="header">
+      <h1>Madlibs</h1>
+      <p>Welcome to the Game</p>
+      <div id="templates">
+        <h2>CHOOSE YOUR TEMPLATE</h2>
+        <form action="/question" >
+          <select name="story_id">
+            {% for story in stories %}
+              <option value="{{ story.code }}">
+                {{ story.title }}
+              </option>
+            {% endfor %}
+          </select>
+          <button id="submitBtn" type="submit">Submit</button>
+        </form>
+      </div>
+    </header>
+
+    <form action="/story">
+      <div id="inputForm">
+        {%for prompt in prompts%}
+
+        <label for="{{prompt}}">{{prompt.title()}}</label>
+        <input name="{{prompt}}" id="{{prompt}}" type="text">
+        {% endfor %}
+
+        <!-- <button id="submitBtn" type="submit">Submit</button> -->
+      </div>
+    </form>
+  
+  </body>
+</html>
+{%endblock%}

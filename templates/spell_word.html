@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {%block title%}Spell with me{%endblock%} 
+
+{%block content%}
+  <body>
+    {%for char in word%}
+    <h1>{{char}}.</h1>
+    {% endfor %}
+  </body>
+</html>
+{%endblock%}
